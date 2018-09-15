@@ -29,7 +29,7 @@ namespace Hackathon.Api.Controllers
                 return new { Display =  Display} ;
             } catch{
 
-                return "Not Macth";
+                return new { Display =  "No Consecutive Number"} ;
             }
         
         }

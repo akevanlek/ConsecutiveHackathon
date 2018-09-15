@@ -15,12 +15,11 @@ export class HomePage {
   }
 
   FindConsecutive() {
-    this.http.get("http://localhost:5000/api/Values/76/")
+    this.http.get(GlobalVariable.host + "api/Values/" + this.NumberInput)
     .subscribe((data : any) => {
         
       this.NumberConsecutiveGroup = data.display;
-      alert(data);
-      console.log(data);
+      
     });
   }
 
