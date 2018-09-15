@@ -15,11 +15,12 @@ export class HomePage {
   }
 
   FindConsecutive() {
-    this.http.get("http://p-teerachai361566.codeanyapp.com:8000/api/values/GetStudent/" + this.NumberInput)
+    this.http.get("http://localhost:5000/api/Values/76/")
     .subscribe((data : any) => {
         
-      this.NumberConsecutiveGroup = data.name;
+      this.NumberConsecutiveGroup = data.display;
       alert(data);
+      console.log(data);
     });
   }
 
