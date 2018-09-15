@@ -12,7 +12,7 @@ namespace Hackathon.Api.Controllers
     {
         // GET api/values
         [HttpGet("{number}")]
-        public string Get(string number)
+        public object Get(string number)
         {
             try{
                 var N = int.Parse(number);
@@ -26,10 +26,10 @@ namespace Hackathon.Api.Controllers
                    Display += item +" ";
                 }
  
-                return Display ;
+                return new { Display =  Display} ;
             } catch{
 
-                return "Not Int";
+                return "Not Macth";
             }
         
         }
