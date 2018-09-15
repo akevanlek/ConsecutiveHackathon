@@ -11,35 +11,29 @@ namespace Hackathon.Api.Controllers
     public class ValuesController : ControllerBase
     {
         // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [HttpGet("{number}")]
+        public string Get(string number)
         {
-            return new string[] { "value1", "value2" };
+            try{
+                var N = int.Parse(number);
+                var cal = new Logic();
+
+                var result =  cal.CalConsecutiveNumber(N);
+
+                string Display = " "; 
+                foreach (var item in result)
+                {
+                   Display += item +" ";
+                }
+ 
+                return Display ;
+            } catch{
+
+                return "Not Int";
+            }
+        
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+       
     }
 }
